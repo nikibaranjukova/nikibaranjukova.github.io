@@ -10,46 +10,55 @@
         font-family: Arial, sans-serif;
         background-color: #ffe6f0;
         text-align: center;
-        padding-top: 100px;
-        overflow: hidden;
+        margin: 0;
+        padding: 0;
     }
 
     .container {
         background-color: #fff0f5;
         padding: 40px;
-        margin: auto;
-        width: 60%;
+        margin: 80px auto;
+        width: 70%;
         box-shadow: 0 0 15px rgba(255,105,180,0.3);
         border-radius: 15px;
-        position: relative;
-        z-index: 2;
     }
 
     h1 { color: #d63384; }
     p { font-size: 18px; color: #a61e6e; }
 
-    .cat {
-        position: fixed;
-        font-size: 60px;
-        cursor: pointer;
-        animation: fly linear infinite;
+    .cats {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
     }
 
-    @keyframes fly {
-        from { transform: translateX(-10vw); }
-        to { transform: translateX(110vw); }
+    .cat {
+        width: 220px;
+        border-radius: 20px;
+        cursor: pointer;
+        animation: float 3s ease-in-out infinite;
+        transition: transform 0.3s;
+    }
+
+    .cat:hover {
+        transform: scale(1.05);
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
     }
 
     .bubble {
-        position: fixed;
+        position: absolute;
         background: white;
         padding: 10px 15px;
         border-radius: 20px;
         box-shadow: 0 0 10px rgba(0,0,0,0.2);
         font-size: 14px;
         color: #d63384;
-        pointer-events: none;
-        z-index: 3;
         animation: fadeOut 3s forwards;
     }
 
@@ -66,33 +75,28 @@
 <div class="container">
     <h1>Nicol Baranjuková</h1>
     <p>Studuji na gymplu v Praze a jsem ve čtvrťáku.</p>
+
+    <div class="cats">
+        <!-- Černobílé krátkosrsté -->
+        <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" class="cat">
+
+        <!-- Hnědo-zrzavé dlouhosrsté -->
+        <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNA.jpg" class="cat">
+    </div>
 </div>
 
 <script>
-function createCat(topPosition, duration) {
-    const cat = document.createElement("div");
-    cat.classList.add("cat");
-    cat.style.top = topPosition + "vh";
-    cat.style.animationDuration = duration + "s";
-    cat.textContent = "🐱";
-
+document.querySelectorAll(".cat").forEach(cat => {
     cat.addEventListener("click", function(e) {
         const bubble = document.createElement("div");
         bubble.classList.add("bubble");
-        bubble.style.left = e.clientX + "px";
-        bubble.style.top = e.clientY + "px";
         bubble.textContent = "Dneska ti to sluší";
+        bubble.style.left = e.pageX + "px";
+        bubble.style.top = e.pageY + "px";
         document.body.appendChild(bubble);
-
         setTimeout(() => bubble.remove(), 3000);
     });
-
-    document.body.appendChild(cat);
-}
-
-createCat(20, 12);
-createCat(50, 10);
-createCat(75, 14);
+});
 </script>
 
 </body>
