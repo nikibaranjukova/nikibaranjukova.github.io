@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Vše o kočkách</title>
+    <style>
+        body {
+            background-color: #fff4a3;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        img {
+            width: 250px;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .heart {
+            position: fixed;
+            color: red;
+            font-size: 20px;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        a {
+            display: block;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🐾 Vše o kočkách 🐾</h1>
+
+    <h2>Co jsou kočky?</h2>
+    <p>Kočky jsou oblíbená domácí zvířata, která jsou známá svou nezávislostí a hravostí.</p>
+
+    <h2>Chování koček</h2>
+    <p>Kočky rády loví, spí a hrají si. Každá kočka má svou osobnost.</p>
+
+    <h2>Péče o kočku</h2>
+    <p>Kočky potřebují kvalitní krmivo, čistotu a pozornost.</p>
+
+    <!-- VÍCE KOČEK -->
+    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131">
+    <img src="https://images.unsplash.com/photo-1595433562696-3dfc3f0bdf9a">
+    <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006">
+
+    <a href="index.html">⬅ Zpět domů</a>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
