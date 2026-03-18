@@ -1,103 +1,48 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nicol Baranjuková</title>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #ffe6f0;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    .container {
-        background-color: #fff0f5;
-        padding: 40px;
-        margin: 80px auto;
-        width: 70%;
-        box-shadow: 0 0 15px rgba(255,105,180,0.3);
-        border-radius: 15px;
-    }
-
-    h1 { color: #d63384; }
-    p { font-size: 18px; color: #a61e6e; }
-
-    .cats {
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-    }
-
-    .cat {
-        width: 220px;
-        border-radius: 20px;
-        cursor: pointer;
-        animation: float 3s ease-in-out infinite;
-        transition: transform 0.3s;
-    }
-
-    .cat:hover {
-        transform: scale(1.05);
-    }
-
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
-    }
-
-    .bubble {
-        position: absolute;
-        background: white;
-        padding: 10px 15px;
-        border-radius: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        font-size: 14px;
-        color: #d63384;
-        animation: fadeOut 3s forwards;
-    }
-
-    @keyframes fadeOut {
-        0% { opacity: 1; }
-        80% { opacity: 1; }
-        100% { opacity: 0; }
-    }
-</style>
+    <meta charset="UTF-8">
+    <title>Moje stránka</title>
+    <style>
+        body {
+            background-color: #ffd6e7;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px pink;
+        }
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            color: purple;
+            font-weight: bold;
+        }
+        a:hover {
+            background-color: pink;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>Nicol Baranjuková</h1>
-    <p>Studuji na gymplu v Praze a jsem ve čtvrťáku.</p>
+    <h1>🐱 Vítejte na mé stránce 🐱</h1>
 
-    <div class="cats">
-        <!-- Černobílé krátkosrsté -->
-        <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" class="cat">
+    <p>
+        Niki oblíbené zvíře je kočka, proto se o nich můžete dozvědět více. Stačí kliknout.
+    </p>
 
-        <!-- Hnědo-zrzavé dlouhosrsté -->
-        <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNA.jpg" class="cat">
-    </div>
-</div>
+    <!-- OPRAVDOVÁ ROZTOMILÁ KOČKA -->
+    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="Roztomilá kočka">
 
-<script>
-document.querySelectorAll(".cat").forEach(cat => {
-    cat.addEventListener("click", function(e) {
-        const bubble = document.createElement("div");
-        bubble.classList.add("bubble");
-        bubble.textContent = "Dneska ti to sluší";
-        bubble.style.left = e.pageX + "px";
-        bubble.style.top = e.pageY + "px";
-        document.body.appendChild(bubble);
-        setTimeout(() => bubble.remove(), 3000);
-    });
-});
-</script>
+    <br>
+
+    <a href="kocky.html">Vše o kočkách</a>
 
 </body>
 </html>
